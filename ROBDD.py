@@ -246,17 +246,20 @@ class ROBDD:
     # Hardcoding the expression for now!
     # TODO : Integrate the parser with the exisiting ROBDD code.
     def eval(self):
-        if self.switch:
+        if self.switch == 1:
             return self.equiv_(self.and_(self.x[0],self.x[1]),self.x[2])
-        # Test Case 3
-        #return self.and_(self.and_(self.and_(self.x[0],self.x[1]),self.and_(self.x[2],self.x[3])),self.and_(self.and_(self.x[4],self.x[5]),self.and_(self.x[6],self.x[7])))
-        # Test Case 2
-        #return (self.and_(self.implies_(self.not_(self.x[0]),self.equiv_(1,self.x[1])),self.not_(self.x[2])))
-        # Test Case 1
-        return self.or_(self.equiv_(self.x[0],self.x[1]),self.x[2])
-
-        # Negative Test Case for SatCount
-        #return self.and_(0,self.x[0])
+        elif self.switch == 3:
+            # Test Case 3
+            return self.and_(self.and_(self.and_(self.x[0],self.x[1]),self.and_(self.x[2],self.x[3])),self.and_(self.and_(self.x[4],self.x[5]),self.and_(self.x[6],self.x[7])))
+        elif self.switch == 2:
+            # Test Case 2
+            return (self.and_(self.implies_(self.not_(self.x[0]),self.equiv_(1,self.x[1])),self.not_(self.x[2])))
+        elif self.switch == 0:
+            # Test Case 1
+            return self.or_(self.equiv_(self.x[0],self.x[1]),self.x[2])
+        elif self.switch == 4:
+            # Negative Test Case for SatCount
+            return self.and_(0,self.x[0])
 
 ######### Class Apply_ROBDD inherits from class ROBDD#######
 

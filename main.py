@@ -3,7 +3,7 @@ import time
 # Init timer
 start_time = time.time()
 # Create the ROBDD object
-ROBDD1 = ROBDD(3,switch=0)
+ROBDD1 = ROBDD(1,switch=4)
 # Display time taken for the object to be created
 print('Time is '+str(time.time()-start_time))
 
